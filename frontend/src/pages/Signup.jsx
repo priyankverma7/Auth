@@ -17,6 +17,7 @@ const validationSchema = yup.object({
 })
 
 const Signup = () => {
+  const API = "https://auth-1-7vhu.onrender.com";
 
   const {
     register,
@@ -28,7 +29,7 @@ const Signup = () => {
 
   const onSubmit = async (data) => {
   try {
-    const res = await axios.post("http://localhost:5000/api/auth/signup", data)
+    const res = await axios.post(`${API}/api/auth/signup`, data)
     console.log("Response:", res.data)  
     alert("Signup successful")
   } catch (error) {

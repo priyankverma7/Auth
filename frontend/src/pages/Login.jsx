@@ -12,6 +12,7 @@ const validationSchema = yup.object({
   password: yup.string().min(6, "Min 6 characters").required("Password is required"),
 })
 const Login = () => {
+  const API = "https://auth-1-7vhu.onrender.com";
   
      const {
         register,
@@ -23,10 +24,7 @@ const Login = () => {
     
      const onSubmit = async (data) => {
   try {
-    const res = await axios.post(
-      "http://localhost:5000/api/auth/login",
-      data
-    );
+    const res = await axios.post(`${API}/api/auth/login`, data);
     console.log("Login Success:", res.data);
     localStorage.setItem("token", res.data.token);
    
